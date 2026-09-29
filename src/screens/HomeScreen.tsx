@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './RootNavigator.tsx';
 
@@ -9,20 +8,59 @@ const topics = [
     id: 1,
     title: 'Flat list demo',
     screen: 'FlatListDemo',
+  },
+  {
+    id: 2,
+    title: 'Section list demo',
+    screen: 'SectionListDemo',
   }
 ]
 
+
+
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">
 
-const HomeScreen: React.FC = () => {
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+type Props = {
+  navigation: HomeScreenNavigationProp
+}
+
+const HomeScreen: React.FC<Props> = ({navigation}) => {
 
   return (
-    <View>
-      <Text>Home screen</Text>
-      <Button title='Flat List Demo' onPress={() => navigation.navigate('FlatListDemo')} />
+    <View style={styles.container}>
+      <FlatList
+          data={topics}
+          renderItem={({item}) => (
+              <TouchableOpacity
+                  style={styles.topicBtn}
+                  onPress={() => navigation.navigate(item.screen as keyof RootStackParamList)}
+              >
+                <Text style={styles.topicText}>{item.title}</Text>
+
+              </TouchableOpacity>
+
+          )}
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 15,
+  },
+  topicBtn: {
+    marginBottom: 8,
+    padding: 16,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 10,
+  },
+  topicText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
+
+})
 
 export default HomeScreen;

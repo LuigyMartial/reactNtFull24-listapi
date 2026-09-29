@@ -17,6 +17,9 @@ const FlatListScreen: React.FC = () => {
         <View style={styles.container}>
             <Text style={styles.header}>Flatlist Example</Text>
             <FlatList
+                ListHeaderComponent={<Text style={styles.flatListHeader}>FlatList Header</Text>}
+                ListFooterComponent={<Text style={styles.flatListFooter}>FlatList Footer</Text>}
+                keyExtractor={item => item.id}
                 data={FLAT_DATA}
                 renderItem={handleRenderItem}
             />
@@ -37,6 +40,16 @@ const styles = StyleSheet.create({
         padding: 20,
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
+    },
+    flatListHeader: {
+        fontSize: 30,
+        fontWeight: 'bold'
+    },
+    flatListFooter: {
+        marginLeft: 20,
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'blue'
     }
 });
 
