@@ -13,10 +13,18 @@ const topics = [
     id: 2,
     title: 'Section list demo',
     screen: 'SectionListDemo',
+  },
+  {
+    id: 3,
+    title: 'Touchable Demo',
+    screen: 'TouchableDemo',
+  },
+  {
+    id: 4,
+    title: 'Modal Demo',
+    screen: 'ModalDemo',
   }
 ]
-
-
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">
 
@@ -36,9 +44,7 @@ const HomeScreen: React.FC<Props> = ({navigation}) => {
                   onPress={() => navigation.navigate(item.screen as keyof RootStackParamList)}
               >
                 <Text style={styles.topicText}>{item.title}</Text>
-
               </TouchableOpacity>
-
           )}
       />
     </View>
