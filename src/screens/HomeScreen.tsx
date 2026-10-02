@@ -23,6 +23,11 @@ const topics = [
     id: 4,
     title: 'Modal Demo',
     screen: 'ModalDemo',
+  },
+  {
+    id: 5,
+    title: 'Pull To Refresh',
+    screen: 'PullToRefreshDemo',
   }
 ]
 
