@@ -7,6 +7,7 @@ import ModalScreen from "./ModalScreen.tsx";
 import PullToRefresh from "./PullToRefresh.tsx";
 import DataFetching from "./DataFetching.tsx";
 import AxiosDemoScreen from "./AxiosScreen.tsx";
+import ThemeScreen from "./ThemeScreen.tsx";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   PullToRefreshDemo: undefined;
   DataFetchingDemo: undefined;
   AxiosDemo: undefined;
+  ThemeDemo: undefined;
 }
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ const RootNavigator: React.FC = () => {
             <Stack.Screen name="PullToRefreshDemo" component={PullToRefresh} />
             <Stack.Screen name="DataFetchingDemo" component={DataFetching} />
             <Stack.Screen name="AxiosDemo" component={AxiosDemoScreen} />
+            <Stack.Screen name='ThemeDemo' component={ThemeScreen} />
 
         </Stack.Navigator>
     );

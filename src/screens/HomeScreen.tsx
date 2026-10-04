@@ -38,6 +38,11 @@ const topics = [
     id: 7,
     title: 'Axios',
     screen: 'AxiosDemo',
+  },
+  {
+    id: 8,
+    title: 'Theme Demo',
+    screen: 'ThemeDemo',
   }
 ]
 

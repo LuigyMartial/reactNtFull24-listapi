@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
 import RootNavigator from "./src/screens/RootNavigator.tsx";
-
+import {ThemeProvider} from "./src/context/ThemeContext.tsx";
 
 function App(): React.JSX.Element {
     // @ts-ignore
     return (
-        <NavigationContainer>
-            <RootNavigator />
-        </NavigationContainer>
+        <ThemeProvider>
+            <NavigationContainer>
+                <RootNavigator />
+            </NavigationContainer>
+        </ThemeProvider>
     )
 }
 
